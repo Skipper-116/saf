@@ -55,4 +55,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function name(): string
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
 }
