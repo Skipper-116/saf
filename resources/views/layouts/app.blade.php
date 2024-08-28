@@ -93,12 +93,11 @@
                 </div>
             </div>
         </nav>
-
-
         <main class="py-4 bg-gray-400">
             @yield('content')
         </main>
     </div>
+    @stack('scripts')
 </body>
 
 </html>
