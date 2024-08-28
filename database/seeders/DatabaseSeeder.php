@@ -2,8 +2,15 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use App\Models\Designation;
+use App\Models\Location;
+use App\Models\SubLocation;
+use App\Models\County;
+use App\Models\Gender;
+use App\Models\MaritalStatus;
+use App\Models\SubCounty;
+use App\Models\User;
+use App\Models\Village;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,23 +21,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Designation::factory(10)->create();
-        // we need to create the following designations: System Administrator, Manager, Supervisor, Officer, Clerk
-        Designation::factory()->create([
-            'name' => 'System Administrator',
-        ]);
-        Designation::factory()->create([
-            'name' => 'Manager',
-        ]);
-        Designation::factory()->create([
-            'name' => 'Supervisor',
-        ]);
-        Designation::factory()->create([
-            'name' => 'Officer',
-        ]);
-        Designation::factory()->create([
-            'name' => 'Clerk',
-        ]);
+        $designations = [
+            'System Administrator',
+            'Manager',
+            'Supervisor',
+            'Officer',
+            'Clerk',
+        ];
+
+        foreach ($designations as $designation) {
+            Designation::factory()->create([
+                'name' => $designation,
+            ]);
+        }
 
         // User::factory(10)->create();
         User::factory()->create([
@@ -41,6 +44,32 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
+        // Location Metadata
+        County::factory(10)->create();
+        SubCounty::factory(20)->create();
+        Location::factory(40)->create();
+        SubLocation::factory(80)->create();
+        Village::factory(160)->create();
+
+        foreach(['Female', 'Male'] as $gender){
+            Gender::factory()->create([
+                'name' => $gender,
+            ]);
+        }
+
+        $maritals = [
+            'Single',
+            'Married',
+            'Divorced',
+            'Widowed',
+            'Separated',
+        ];
+
+        foreach ($maritals as $marital) {
+            MaritalStatus::factory()->create([
+                'name' => $marital,
+            ]);
+        }
 
     }
 }

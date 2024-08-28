@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('application_id')->constrained('applications');
             $table->foreignId('social_programme_id')->constrained('social_programs');
+            $table->foreignId('creator')->constrained('users');
             $table->timestamps();
         });
     }

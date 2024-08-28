@@ -36,6 +36,14 @@ class User extends Authenticatable
     ];
 
     /**
+     * Designation relationship
+     */
+    public function designation()
+    {
+        return $this->belongsTo(Designation::class);
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
