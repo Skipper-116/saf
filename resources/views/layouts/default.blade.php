@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <div id="app" class="d-flex flex-column min-vh-100 bg-secondary">
+    <div id="app" class="d-flex flex-column min-vh-100 bg-dark">
         <main class="container my-auto">
             <div class="row justify-content-center">
                 <div class="col-md-8">
