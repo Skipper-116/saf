@@ -7,7 +7,9 @@ use App\Models\Location;
 use App\Models\SubLocation;
 use App\Models\County;
 use App\Models\Gender;
+use App\Models\IdentifierType;
 use App\Models\MaritalStatus;
+use App\Models\SocialProgram;
 use App\Models\SubCounty;
 use App\Models\User;
 use App\Models\Village;
@@ -17,7 +19,7 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Seed the application's database
      */
     public function run(): void
     {
@@ -71,5 +73,24 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+        foreach(['Passport Number', 'Identity Card'] as $id_type){
+            IdentifierType::factory()->create([
+                'name' => $id_type,
+            ]);
+        }
+
+        $programs = [
+            'Orphans and vulnerable children',
+            'Poor elderly persons',
+            'Persons with disability',
+            'Persons in extreme poverty',
+            'Any other',
+        ];
+
+        foreach ($programs as $program) {
+            SocialProgram::factory()->create([
+                'name' => $program,
+            ]);
+        }
     }
 }
