@@ -196,6 +196,14 @@ class ApplicationController extends Controller
     private function createApplicantPhoneNumbers($applicant, $contacts)
     {
         $phoneNumbers = explode(',', $contacts);
+        // return if there are no phone numbers
+        if (count($phoneNumbers) === 0) {
+            return;
+        }
+        // return if contacts is an empty string, strip white spaces and check if it is empty
+        if (trim($contacts) === '') {
+            return;
+        }
         foreach ($phoneNumbers as $number) {
             $applicant->telephones()->create([
                 'telephone' => $number,

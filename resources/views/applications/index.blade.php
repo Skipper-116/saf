@@ -417,20 +417,20 @@
         if (isValid) {
             // Gather form data
             let formData = {
-                applicationDate: $('#applicationDate').val(),
-                fullName: $('#fullName').val(),
-                sex: $('#sex_id').val(),
-                age: $('#age').val(),
-                maritalStatus: $('#maritalStatus').val(),
-                idType: $('#idType').val(),
-                idNumber: $('#idNumber').val(),
-                village: $('#village').val(),
-                postalAddress: $('#postalAddress').val(),
-                physicalAddress: $('#physicalAddress').val(),
-                telephoneContacts: $('#telephoneContacts').val(),
-                socialAssistanceProgramme: $('#socialAssistanceProgramme').val(),
-                nameOfOfficer: $('#nameOfOfficer').val(),
-                dateCollected: $('#dateCollected').val(),
+                applicationDate: $('#applicationModal #applicationDate').val(),
+                fullName: $('#applicationModal #fullName').val(),
+                sex: $('#applicationModal #sex_id').val(),
+                age: $('#applicationModal #age').val(),
+                maritalStatus: $('#applicationModal #maritalStatus').val(),
+                idType: $('#applicationModal #idType').val(),
+                idNumber: $('#applicationModal #idNumber').val(),
+                village: $('#applicationModal #village').val(),
+                postalAddress: $('#applicationModal #postalAddress').val(),
+                physicalAddress: $('#applicationModal #physicalAddress').val(),
+                telephoneContacts: $('#applicationModal #telephoneContacts').val(),
+                socialAssistanceProgramme: $('#applicationModal #socialAssistanceProgramme').val(),
+                nameOfOfficer: $('#applicationModal #nameOfOfficer').val(),
+                dateCollected: $('#applicationModal #dateCollected').val(),
                 _token: $('meta[name="csrf-token"]').attr('content')
             };
 
