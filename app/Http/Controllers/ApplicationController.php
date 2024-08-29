@@ -104,6 +104,8 @@ class ApplicationController extends Controller
                 'maritalStatus' => 'required|in:1,2,3,4',
                 'idType' => 'required|integer',
                 'idNumber' => 'required|string|max:255',
+                // idNumber should only be alphanumeric
+                'idNumber' => 'regex:/^[a-zA-Z0-9]+$/',
                 'village' => 'required|integer',
                 'postalAddress' => 'nullable|string|max:255',
                 'physicalAddress' => 'nullable|string|max:255',

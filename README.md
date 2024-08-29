@@ -11,6 +11,15 @@ Before you begin, make sure you have the following installed on your system:
 1. PHP: Install PHP 8.2.0 by following the official documentation.
 2. Composer: Install Composer by following the official documentation.
 3. Git: Install Git by following the official documentation.
+4. Laravel: Install Laravel 11 by following the official documentation.
+5. MySQL: Install MySQL by following the official documentation.
+6. Ubuntu: Install Ubuntu 20.04 LTS by following the official documentation.
+
+
+### Note:
+This guide assumes that you have PHP, Composer, Git, Laravel, MySQL, and Ubuntu installed on your system. If you haven't installed these tools yet, please refer to the official documentation for installation instructions.
+
+Also note this was being developed on a Mac, and did not manage to install the old version of PHP as is required.
 
 ## Step 1: Clone the Project
 1. Open your terminal and navigate to the directory where you want to clone the project.
@@ -57,6 +66,12 @@ Before you begin, make sure you have the following installed on your system:
     php artisan serve
     ```
     This will start the server at `http://localhost:8000`.
+
+### Note:
+Alternatively, you can use the following command to start the server:
+```bash
+sh start.sh
+```
 
 ## Step 7: Default User Credentials
 After seeding the database, you can use the following default user credentials to log in to the application:

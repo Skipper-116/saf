@@ -21,7 +21,7 @@
                 <div class="card-header col-span-full">
                     <!-- left side should contain title while right side should have a button to add an application-->
                     <span class="float-start">{{ __('Applications') }}</span>
-                    <a data-bs-toggle="modal" data-bs-target="#applicationModal" class="btn btn-link btn-primary float-end">Add Application</a>
+                    <a data-bs-toggle="modal" data-bs-target="#applicationModal" class="btn btn-primary float-end">Add Application</a>
                 </div>
 
                 <div class="card-body col-span-full">

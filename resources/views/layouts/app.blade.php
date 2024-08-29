@@ -45,26 +45,28 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link {{ $title === 'Home' ? 'active': '' }}" aria-current="page" href="#">Home</a>
+                            <a class="nav-link {{ $title === 'Home' ? 'active': '' }}" aria-current="page" href="/home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link {{ $title === 'Applications' ? 'active': '' }}" aria-current="page" href="/applications">Applications</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
+                                System Metadata
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Gender</a></li>
+                                <li><a class="dropdown-item" href="#">Marital Status</a></li>
+                                <li><a class="dropdown-item" href="#">Identifier Type</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">County</a></li>
+                                <li><a class="dropdown-item" href="#">Sub County</a></li>
+                                <li><a class="dropdown-item" href="#">Location</a></li>
+                                <li><a class="dropdown-item" href="#">Sub Location</a></li>
+                                <li><a class="dropdown-item" href="#">Village</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">Disabled</a>
                         </li>
                     </ul>
                     <div class="d-flex text-white mr-4" role="search">
