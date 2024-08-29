@@ -60,7 +60,6 @@
                                         <button type="button" class="btn btn-primary" onclick="viewApplication({{ json_encode($application) }})">View</button>
                                         @if($application->approved == "Pending Approval")
                                         <button type="button" class="btn btn-warning" onclick="editApplication({{ json_encode($application) }})">Edit</button>
-                                        <button type="button" class="btn btn-danger" onclick="deleteApplication({{ json_encode($application) }})">Delete</button>
                                         @endif
                                     </div>
                                 </td>
@@ -238,7 +237,8 @@
                     </div>
                 </div>
                 <div class="modal-footer" id="approvalFooter">
-                    <button type="button" class="btn btn-success" onclick="approveApplication(event)">Approve</button>
+                    <button type="button" class="btn btn-danger float-start mr-10" onclick="alert('Not currently implemented plus it is too dangerous')">Delete</button>
+                    <button type="button" class="btn btn-success float-end" onclick="approveApplication(event)">Approve</button>
                 </div>
             </div>
         </div>
