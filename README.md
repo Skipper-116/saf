@@ -25,9 +25,8 @@ Also note this was being developed on a Mac, and did not manage to install the o
 1. Open your terminal and navigate to the directory where you want to clone the project.
 2. Run the following command to clone the project:
     ```
-    git clone <repository_url>
+    git clone https://github.com/Skipper-116/saf.git
     ```
-    Replace `<repository_url>` with the URL of the Git repository.
 
 ## Step 2: Copy `.env.example` to `.env`
 1. In the project directory, locate the `.env.example` file.
