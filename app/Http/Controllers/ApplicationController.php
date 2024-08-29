@@ -27,40 +27,58 @@ class ApplicationController extends Controller
     // post method by api
     public function store(Request $request)
     {
-        $this->validateRequest($request);
+        DB::beginTransaction();
 
-        $identifier = $this->findIdentifier($request->idNumber, $request->idType);
+        try {
+            $this->validateRequest($request);
 
-        if ($identifier) {
-            $application = $this->createApplication($request, $identifier->applicant_id);
-            $this->attachSocialProgrammes($application, $request->socialAssistanceProgramme);
-        } else {
-            $applicant = $this->createApplicant($request);
-            $this->createApplicantPhoneNumbers($applicant, $request->telephoneContacts);
-            $this->createApplicantIdentifier($applicant, $request->idNumber, $request->idType);
-            $application = $this->createApplication($request, $applicant->id);
-            $this->attachSocialProgrammes($application, $request->socialAssistanceProgramme);
+            $identifier = $this->findIdentifier($request->idNumber, $request->idType);
+
+            if ($identifier) {
+                $application = $this->createApplication($request, $identifier->applicant_id);
+                $this->attachSocialProgrammes($application, $request->socialAssistanceProgramme);
+            } else {
+                $applicant = $this->createApplicant($request);
+                $this->createApplicantPhoneNumbers($applicant, $request->telephoneContacts);
+                $this->createApplicantIdentifier($applicant, $request->idNumber, $request->idType);
+                $application = $this->createApplication($request, $applicant->id);
+                $this->attachSocialProgrammes($application, $request->socialAssistanceProgramme);
+            }
+
+            DB::commit();
+
+            return response()->json(['message' => 'Application created successfully'], 201);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json(['message' => 'Application creation failed', 'error' => $e->getMessage()], 500);
         }
-
-        return response()->json(['message' => 'Application created successfully'], 201);
     }
 
     public function updateApplication(Request $request, $id)
     {
-        $application = Application::findOrFail($id);
-        $this->validateUpdateRequest($request);
+        DB::beginTransaction();
 
-        $application->application_date = $request->applicationDate;
-        $application->village_id = $request->village;
-        $application->collected_by = $request->nameOfOfficer;
-        $application->collection_date = $request->dateCollected;
-        $application->save();
+        try {
+            $application = Application::findOrFail($id);
+            $this->validateUpdateRequest($request);
 
-        // we need to destroy all application social programmes and reattach them
-        $application->socialProgrammes()->delete();
-        $this->attachSocialProgrammes($application, $request->socialAssistanceProgramme);
+            $application->application_date = $request->applicationDate;
+            $application->village_id = $request->village;
+            $application->collected_by = $request->nameOfOfficer;
+            $application->collection_date = $request->dateCollected;
+            $application->save();
 
-        return response()->json(['message' => 'Application rejected successfully'], 200);
+            // we need to destroy all application social programmes and reattach them
+            $application->socialProgrammes()->delete();
+            $this->attachSocialProgrammes($application, $request->socialAssistanceProgramme);
+
+            DB::commit();
+
+            return response()->json(['message' => 'Application updated successfully'], 200);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json(['message' => 'Application update failed', 'error' => $e->getMessage()], 500);
+        }
     }
 
     public function approveApplication($id)
