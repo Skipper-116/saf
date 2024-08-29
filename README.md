@@ -8,7 +8,7 @@ This guide will walk you through the process of setting up PHP, Composer, and La
 ## Prerequisites
 Before you begin, make sure you have the following installed on your system:
 
-1. PHP: Install PHP by following the official documentation for your operating system.
+1. PHP: Install PHP 8.2.0 by following the official documentation.
 2. Composer: Install Composer by following the official documentation.
 3. Git: Install Git by following the official documentation.
 
@@ -32,7 +32,14 @@ Before you begin, make sure you have the following installed on your system:
     composer install
     ```
 
-## Step 4: Migrate and Seed the Database
+## Step 4: Generate Application Key
+1. In the terminal, navigate to the project directory.
+2. Run the following command to generate the application key:
+    ```
+    php artisan key:generate
+    ```
+
+## Step 5: Migrate and Seed the Database
 1. In the terminal, navigate to the project directory.
 2. Run the following command to migrate the database:
     ```
@@ -43,12 +50,19 @@ Before you begin, make sure you have the following installed on your system:
     php artisan db:seed
     ```
 
-## Step 5: Start the Laravel Project
+## Step 6: Start the Laravel Project
 1. In the terminal, navigate to the project directory.
 2. Run the following command to start the Laravel development server:
     ```
     php artisan serve
     ```
     This will start the server at `http://localhost:8000`.
+
+## Step 7: Default User Credentials
+After seeding the database, you can use the following default user credentials to log in to the application:
+```php
+Email: test@example.com
+Password: password
+```
 
 Congratulations! You have successfully set up PHP, Composer, and Laravel, and started your Laravel project. You can now access your Laravel application in your web browser.
