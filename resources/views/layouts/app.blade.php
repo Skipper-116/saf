@@ -14,6 +14,8 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    @yield('styles')
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
@@ -93,7 +95,7 @@
                 </div>
             </div>
         </nav>
-        <main class="py-4 bg-gray-400">
+        <main class="py-4 bg-gray-400 container-fluid" style="width: 90%; margin: 0 auto;">
             @yield('content')
         </main>
     </div>

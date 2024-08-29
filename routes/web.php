@@ -38,3 +38,7 @@ Route::get('/fetch_social_programs', [App\Http\Controllers\SocialProgramControll
 
 // Post Routes
 Route::post('/submit_application', [App\Http\Controllers\ApplicationController::class, 'store']);
+
+// Put Routes
+Route::put('/approve_application/{id}', [App\Http\Controllers\ApplicationController::class, 'approveApplication']);
+Route::put('/update_application/{id}', [App\Http\Controllers\ApplicationController::class, 'updateApplication']);

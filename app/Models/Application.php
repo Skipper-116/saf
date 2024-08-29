@@ -15,6 +15,9 @@ class Application extends Model
         'collected_by',
         'collection_date',
         'village_id',
+        'approved',
+        'approved_by',
+        'approved_date',
         'creator',
     ];
 
