@@ -13,6 +13,7 @@ class ApplicantIdentifier extends Model
         'applicant_id',
         'identifier_type_id',
         'identifier',
+        'creator',
     ];
 
     public function applicant()

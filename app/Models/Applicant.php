@@ -18,6 +18,7 @@ class Applicant extends Model
         'marital_status_id',
         'physical_address',
         'postal_address',
+        'creator',
     ];
 
     public function gender()
@@ -52,7 +53,7 @@ class Applicant extends Model
 
     public function telephones()
     {
-        return $this->hasMany(ApplicantTelphone::class);
+        return $this->hasMany(ApplicantTelephone::class);
     }
 
     public function identifiers()

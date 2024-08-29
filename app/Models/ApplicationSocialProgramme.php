@@ -12,6 +12,7 @@ class ApplicationSocialProgramme extends Model
     protected $fillable = [
         'application_id',
         'social_programme_id',
+        'creator',
     ];
 
     public function application()

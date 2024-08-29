@@ -13,6 +13,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+// Get Routes
 Route::get('/applications', [App\Http\Controllers\ApplicationController::class, 'index'])->name('applications.index');
 Route::get('/users', [App\Http\Controllers\UsersController::class, 'index'])->name('users.index');
 Route::get('/counties', [CountyController::class, 'getCounties']);
@@ -33,3 +35,6 @@ Route::get('/marital_statuses', [App\Http\Controllers\MaritalStatusController::c
 Route::get('/indentifier_types', [App\Http\Controllers\IdentifierTypeController::class, 'getIdentifierTypes']);
 Route::get('/fetch_users', [App\Http\Controllers\UsersController::class, 'getUsers']);
 Route::get('/fetch_social_programs', [App\Http\Controllers\SocialProgramController::class, 'getSocialPrograms']);
+
+// Post Routes
+Route::post('/submit_application', [App\Http\Controllers\ApplicationController::class, 'store']);

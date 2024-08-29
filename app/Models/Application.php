@@ -13,8 +13,9 @@ class Application extends Model
         'applicant_id',
         'application_date',
         'collected_by',
-        'collected_date',
-        'village_id'
+        'collection_date',
+        'village_id',
+        'creator',
     ];
 
     public function applicant()
