@@ -80,3 +80,9 @@ Password: password
 ```
 
 Congratulations! You have successfully set up PHP, Composer, and Laravel, and started your Laravel project. You can now access your Laravel application in your web browser.
+
+
+
+## Database Design
+The database design for the Social Assistance Fund Management System consists of the following tables:
+![Database Design](./social_assistance_db_design.png)
